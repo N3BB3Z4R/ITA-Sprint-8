@@ -1,0 +1,60 @@
+.ShipList {
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & a {
+    text-decoration: none;
+    color: #888;
+  }
+}
+
+.ShipList__Element {
+  display: flex;
+  background-color: #111;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-left: 3px solid #111;
+
+  background-image: url('../../assets/bg_bar.png');
+  background-size: 7px;
+  background-repeat: repeat-x;
+  background-position: top left;
+  border-radius: 0.4rem;
+
+  &:hover {
+    color: #fff;
+    background-color: #222;
+    border-left: 3px solid #e15021;
+    box-shadow: -10px 0px 7px -6px #e1512188;
+  }
+}
+
+.ShipList__Image {
+  width:auto;
+  height: 80px;
+  border-radius: inherit;
+  border-radius: 0.4rem;
+}
+
+.ShipList__Description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0.4rem;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.ShipList__Name {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+// .ShipList__Model {
+
+// }

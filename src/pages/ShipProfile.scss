@@ -1,0 +1,129 @@
+.ShipProfile__container {
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-bottom: 3px solid #e15021;
+  }
+
+  .ShipProfile_description {
+    padding: 0rem 0.5rem;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      margin: 1rem 0 0rem 0;
+      width: 100%;
+      font-weight: 400;
+      color: #aaa;
+    }
+  }
+
+  .ShipProfile__name {
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin: 1rem 0 1.5rem 0;
+    width: 100%;
+    font-weight: 400;
+    color: #aaa;
+  }
+
+  .ShipProfile__specifications {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0rem;
+    
+    div {
+      width: 50%;
+      padding: 1rem 0;
+    }
+  }
+
+  .ShipProfile__pilots {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1rem 0rem;
+    gap: 1rem;
+  }
+
+  .ShipProfile__pilotProfile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid #333;
+    border-radius: 0.4rem;
+    margin: 0rem;
+    padding: 1rem;
+    width: calc(25% - 0.8rem);
+    cursor: default;
+
+    background-image: url('../../src/assets/bg_bar.png');
+    background-size: 7px;
+    background-repeat: repeat-x;
+    background-position: top left;
+    
+    & div {
+      width: 100%;
+      padding-left: 1rem;
+
+      &:first-child {
+        font-size:1.2rem;
+        font-weight: bold;
+        padding: 0 0 1rem 0;
+      }
+    }
+  }
+  @media screen and (max-width: 810px) {
+    .ShipProfile__pilotProfile {
+      width: calc(50% - 0.8rem);
+    }
+  }
+
+  .ShipProfile__films {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0rem;
+  }
+
+  .ShipProfile__filmProfile{
+    border: 1px solid #333;
+    margin: 0.5rem 0;
+    padding: 1.5rem;
+    border-radius: 0.4rem;
+
+    background-image: url('../../src/assets/bg_bar.png');
+    background-size: 7px;
+    background-repeat: repeat-x;
+    background-position: top left;
+
+    & div {
+      width: auto;
+      padding-left: 0rem;
+
+      &:nth-child(2) {
+        font-size:1.2rem;
+        font-weight: bold;
+        padding: 0 0 1rem 0rem;
+      }
+      &:last-child {
+        padding-top: 1rem;
+        font-style: italic;
+      }
+    }
+
+    .ShipProfile__filmImage {
+      border-radius: 0.4rem 0.4rem 0 0;
+      margin: 0 0 1.2rem 0;
+      aspect-ratio: 19/9;
+    }
+  }
+}

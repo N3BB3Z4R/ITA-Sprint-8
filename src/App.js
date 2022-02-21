@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import './App.scss';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Starships from './pages/Starships';
+import ShipProfile from './pages/ShipProfile';
+import { getAuthenticatedUser } from './utils/authentication';
+import AuthProtectedRoute from './components/AuthProtectedRouter/AuthProtectedRoute';
+
+export const AuthenticationContext = React.createContext({
+  isAuthenticated: false,
+  setIsAuthenticated: () => { },
+  user: null,
+  setUser: () => { },
+});
 
 function App() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(!!getAuthenticatedUser());
+  const [user, setUser] = useState(getAuthenticatedUser());
+  const authenticationContextValue = {
+    isAuthenticated,
+    setIsAuthenticated,
+    user,
+    setUser,
+   };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthenticationContext.Provider value={authenticationContextValue}>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route index path="/" element={<Home />} />
+            <Route path="/" element={<AuthProtectedRoute redirectPath='/login' />}>
+              <Route path="/starships" element={<Starships />} />
+              <Route exact={true} path="/shipprofile/:id" element={<ShipProfile />} />
+            </Route>
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthenticationContext.Provider>
   );
 }
 
